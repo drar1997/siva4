@@ -1,0 +1,48 @@
+header{
+	background: #02776E;
+	color: 	white;
+	box-shadow: 2px 4px 10px rgba(0,0,0,.2);
+	margin-bottom: 10px;
+	overflow-x: hidden;
+}
+#tgeneral{
+	color: white;
+	text-align: center;
+	font-family: 'Marcellus SC', serif;
+}
+#cslink{
+	color: #f0f0f0;
+}
+a:hover{
+	text-decoration: none;
+	color: white;
+}
+section{
+	background: white;
+	height: auto;
+}
+.optboxs{
+	background: #E57373;
+	color: #3c3c3c;
+	font-family: 'Marcellus SC', serif;
+	size: 22px;
+	box-shadow: 2px 4px 10px rgba(0,0,0,.2);
+	width: 100%;
+	height: auto;
+	padding: 10px;
+}
+.madafkr{
+	padding: 10px;
+	
+}
+#grandmafkr{
+	padding: 15px;
+	height: 50%;
+}
+.imgttt{
+	background: white;
+	height: auto;
+}
+.textdivaa{
+	padding: 15px;
+}
