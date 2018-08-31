@@ -10,15 +10,9 @@
 </head>
 <body>
 	<?php 
-	require_once('puzz/header.php');
+	require_once('puzz/header2.php');
 	 ?>
 	<section>
-		<div style="display: none;" id="logform" >
-		 	<?php require_once('puzz/login.php'); ?>
-		 </div>
-		<div id="regform" style="display: none;" >
-		 	<?php require_once('puzz/signup.php'); ?>
-		 </div>
 		 <!--EMPIEZA LA APP-->
 		<div id="appstart">
 			<?php 
@@ -41,6 +35,13 @@
 				}
 			?>
 		</div>
+		<div style="display: none;" id="logform" >
+		 	<?php require_once('puzz/login.php'); ?>
+		 </div>
+		<div id="regform" style="display: none;" >
+		 	<?php require_once('puzz/signup.php'); ?>
+		 </div>
+		
 
 	 </section>
 

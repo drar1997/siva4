@@ -51,7 +51,7 @@
 		    $_SESSION['name'] = $row["name"];
 		    $_SESSION['lastname'] = $row["lastname"];
 		    $_SESSION['usertype'] = "viajero";
-		    header ("Location: index.php");
+		    header ('Location: puzz/opensession.php');
 
 		    }
 		} else {
@@ -65,10 +65,9 @@
 		        $_SESSION['email'] = $row["email"];
 		        $_SESSION['password'] = $row["password"];
 		        $_SESSION['name'] = $row["name"];
-		        $_SESSION['lastname'] = $row["lastname"];
+		        $_SESSION['lastname'] = $row["lname"];
 		        $_SESSION['usertype'] = "oficinista";
-		        header ("Location: index.php");
-		      
+		        header ('Location: puzz/opensession.php');
 		    	}
 		    } else {
 		    		$sql = "SELECT * FROM  conductores WHERE email = '$email' AND password = '$password'";
@@ -84,7 +83,7 @@
 				        $_SESSION['name'] = $row["name"];
 				        $_SESSION['lastname'] = $row["lastname"];
 				        $_SESSION['usertype'] = "conductor";
-				        header ("Location: index.php");
+				        header ('Location: puzz/opensession.php');
 				        
 				    	}         
 				    } else {
