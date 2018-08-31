@@ -41,9 +41,6 @@
 		<div id="regform" style="display: none;" >
 		 	<?php require_once('puzz/signup.php'); ?>
 		 </div>
-		
-
 	 </section>
-
 </body>
 </html>

@@ -1,0 +1,1 @@
+<a id="but1" onclick="document.getElementById('logform').style.display='block'; document.getElementById('regform').style.display='none';">Iniciar Sesión</a>

@@ -16,8 +16,7 @@
 							if (!empty($_SESSION['name'])) {
 								require_once('puzz/log1true.php');
 							}else{
-								echo 
-								"<a id='but1' onclick=" . '"document.getElementById(' . "'logform').style.display='block'; document.getElementById('regform').style.display=" . "'none';" . '"' . ">Iniciar Sesión</a>";
+								require_once('puzz/log1false.php');
 							}
 
 						 ?>
@@ -25,10 +24,9 @@
 					<div class="hdr-flexitem hdr-bigscr" style="font-size: 14px; margin-right: 10px;">
 						<?php 
 							if (!empty($_SESSION['name'])) {
-								echo "<a href='puzz/closesession.php' id='cslink'>Cerrar Sesión</a>";
+								require_once('puzz/log2true.php');
 							}else{
-								echo 
-								"<a id='but2' onclick=" . '"document.getElementById(' . "'regform').style.display='block'; document.getElementById('logform').style.display=" . "'none';" . '"' . ">Registrarse</a>";
+								require_once('puzz/log2false.php');
 							}
 
 						 ?>

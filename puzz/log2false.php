@@ -1,0 +1,1 @@
+<a id='but2' onclick="document.getElementById('regform').style.display='block'; document.getElementById('logform').style.display='none';">Registrarse</a>
