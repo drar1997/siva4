@@ -1,0 +1,1 @@
+<a href='puzz/closesession.php' id='cslink'>Cerrar Sesión</a>

@@ -49,10 +49,8 @@
 		    $_SESSION['email'] = $row["email"];
 		    $_SESSION['password'] = $row["password"];
 		    $_SESSION['name'] = $row["name"];
-		    $_SESSION['lastname'] = $row["lastname"];
+		    $_SESSION['lastname'] = $row["lname"];
 		    $_SESSION['usertype'] = "viajero";
-		    header ('Location: puzz/opensession.php');
-
 		    }
 		} else {
 			$sql = "SELECT * FROM  oficinistas WHERE email = '$email' AND password = '$password'";
@@ -67,7 +65,6 @@
 		        $_SESSION['name'] = $row["name"];
 		        $_SESSION['lastname'] = $row["lname"];
 		        $_SESSION['usertype'] = "oficinista";
-		        header ('Location: puzz/opensession.php');
 		    	}
 		    } else {
 		    		$sql = "SELECT * FROM  conductores WHERE email = '$email' AND password = '$password'";
@@ -81,10 +78,8 @@
 				        $_SESSION['email'] = $row["email"];
 				        $_SESSION['password'] = $row["password"];
 				        $_SESSION['name'] = $row["name"];
-				        $_SESSION['lastname'] = $row["lastname"];
-				        $_SESSION['usertype'] = "conductor";
-				        header ('Location: puzz/opensession.php');
-				        
+				        $_SESSION['lastname'] = $row["lname"];
+				        $_SESSION['usertype'] = "conductor"; 
 				    	}         
 				    } else {
 						$_SESSION['failure'] = "El usuario y/o la contraseña no concuerdan con nuestros registros, por favor verifica que los hayas escrito correctamente e intenta de nuevo.";
