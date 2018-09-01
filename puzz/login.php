@@ -12,7 +12,9 @@
 	<input type="text" name="posttype" value="loginp" style="display: none;">
 	<button type="submit" class="btn btn-success">Acceder</button> 
 	</div>
-</form></div>
+</form>
+	<p>No tienes una cuenta aún? <a onclick="document.getElementById('regform').style.display='block'; document.getElementById('logform').style.display='none';" style="color: #CF0E16; font-weight: bold;">Regístrate Ya!</a></p>
+</div>
 <?php
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["posttype"] == "loginp"){
