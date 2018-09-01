@@ -1,3 +1,10 @@
+body{
+	font-family: 'Raleway', sans-serif;
+}
+h2{
+	font-family: 'Marcellus SC', serif; 
+	font-size: 26px;
+}
 header{
 			font-family: 'Marcellus SC', serif; 
 			width: 100%;

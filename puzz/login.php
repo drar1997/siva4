@@ -8,11 +8,12 @@
 		<input type="password" name="password" placeholder="Contraseña" class="form-control">
 	</div>
 	<div class="form-group">
-	<button class="btn" type="button" id="cancelarlog">Cancelar</button>
+	<button type="submit" class="btn btn-success" style="float: right; margin-left: 15px;">Acceder</button> 
+	<button class="btn" type="button" id="cancelarlog" style="float: right;">Cancelar</button>
 	<input type="text" name="posttype" value="loginp" style="display: none;">
-	<button type="submit" class="btn btn-success">Acceder</button> 
 	</div>
 </form>
+	<!--<br><br>-->
 	<p>No tienes una cuenta aún? <a onclick="document.getElementById('regform').style.display='block'; document.getElementById('logform').style.display='none';" style="color: #CF0E16; font-weight: bold;">Regístrate Ya!</a></p>
 </div>
 <?php
