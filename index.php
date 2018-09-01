@@ -12,8 +12,8 @@
 	<?php 
 	require_once('puzz/header2.php');
 	 ?>
-	 <div style="width: 100%; height: 10px;"></div>
 	<section>
+		<div style="width: 100%; height: 10px;"></div>
 		 <!--EMPIEZA LA APP-->
 		<div id="appstart">
 			<?php 

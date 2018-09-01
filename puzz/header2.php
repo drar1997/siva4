@@ -31,7 +31,13 @@
 
 						 ?>
 					</div>
-					<a onclick="document.getElementById('logform').style.display='block'; document.getElementById('regform').style.display='none';"><i class="fa fa-user-circle hdr-flexitem"></i></a>
+					<?php 
+							if (!empty($_SESSION['name'])) {
+								require_once('puzz/log3true.php');
+							}else{
+								require_once('puzz/log3false.php');
+							}
+						 ?>
 			</div>
 		</div>
 	</div>

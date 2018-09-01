@@ -26,9 +26,6 @@
 	<div class="col-md-4 madafkr">
 		<a href="#">
 			<div class="optboxs" id="vtlv">
-				<div class="imgttt">
-					<img src="img/rutas.jpg" class="rounded mx-auto d-block img-fluid">
-				</div>
 				<div class="textdivaa">
 				<h3 style="text-align: center;">Ver todos los Viajes</h3>
 				</div>
@@ -38,9 +35,6 @@
 	<div class="col-md-4 madafkr">
 		<a href="#">
 			<div class="optboxs"  id="agviaj">
-				<div class="imgttt">
-					<img src="img/road.png" class="rounded mx-auto d-block img-fluid">
-				</div>
 				<div class="textdivaa">
 				<h3 style="text-align: center;">Agendar Viaje</h3>
 				</div>
@@ -50,9 +44,6 @@
 	<div class="col-md-4 madafkr">
 		<a href="#">
 			<div class="optboxs" id="regvehi">
-				<div class="imgttt">
-					<img src="img/bus.jpg" class="rounded mx-auto d-block img-fluid">
-				</div>
 				<div class="textdivaa">
 				<h3 style="text-align: center;">Registrar Vehículo</h3>
 				</div>

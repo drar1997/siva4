@@ -1,11 +1,13 @@
 <div class="prtprt" style="padding-left: 8%; padding-right: 8%" >
 	<h2>Elige el tipo de cuenta:</h2>
+	<a onclick="document.getElementById('regform').style.display='none';" style="float: right; color: #CF0E16; font-size: 30px;"><i class="fa fa-close"></i></a>
 	<div class="row">
-		<button id="viajerobtn" type="button" class="btn btn-success col-4">Viajero</button>
+		<button id="viajerobtn" type="button" class="btn btn-successrow col-4">Viajero</button>
 		<button id="oficinistabtn" type="button" class="btn col-4">Oficinista</button>
 		<button id="conductorbtn" type="button" class="btn col-4">Conductor</button>
 	</div>
 </div>
+<br>
 <!--Javascript para mostrar ocultar formularios y botones preregtype-->
 <script>
 $(document).ready(function(){
@@ -39,10 +41,10 @@ $(document).ready(function(){
 	<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 	<h2>Regístrate como viajero</h2>
 	<div class="form-group">
-		<input type="email" name="email" placeholder="Correo electrónico" class="form-control">
+		<input type="email" name="email" placeholder="Correo electrónico" autocomplete="username" class="form-control">
 	</div>
 	<div class="form-group">
-		<input type="password" name="password" placeholder="Contraseña" class="form-control">
+		<input type="password" name="password" autocomplete="current-password" placeholder="Contraseña" class="form-control">
 	</div>
 	<div class="form-group">
 		<input type="text" name="name" placeholder="Primer Nombre" class="form-control">
@@ -78,9 +80,10 @@ $(document).ready(function(){
 	</div>
 	<br>
 	<div class="form-group">
-	<button class="btn" type="button" id="cancelar1">Cancelar</button>
-	<input type="text" name="posttype" value="regclient" style="display: none;">
 	<button type="submit" class="btn btn-success">Registrar</button> 
+	<button class="btn btnright" type="button" id="cancelar1">Cancelar</button>
+	<input type="text" name="posttype" value="regclient" style="display: none;">
+	
 	</div>
 </form></div>
 <div id="formregofi" style="padding-left: 8%; padding-right: 8%; display: none">
@@ -111,10 +114,10 @@ $(document).ready(function(){
 	<input type="number" name="numcel" min="1000" placeholder="Número de Celular" class="form-control">
 	</div>
 	<div class="form-group">
-		<input type="email" name="email" placeholder="Correo electrónico" class="form-control">
+		<input type="email" name="email" autocomplete="username" placeholder="Correo electrónico" class="form-control">
 	</div>
 	<div class="form-group">
-		<input type="password" name="password" placeholder="Contraseña" class="form-control">
+		<input type="password" name="password" autocomplete="current-password" placeholder="Contraseña" class="form-control">
 	</div>
 	Género: 
 	<div class="form-check-inline">
@@ -129,9 +132,9 @@ $(document).ready(function(){
 	</div>
 	<br>
 	<div class="form-group">
-	<button class="btn" type="button" id="cancelar2">Cancelar</button>
-	<input type="text" name="posttype" value="regofi" style="display: none;">
-	<button type="submit" class="btn btn-success">Registrar</button> 
+	<button type="submit" class="btn btn-success">Registrar</button>
+	<button class="btn btnright" type="button" id="cancelar2">Cancelar</button>
+	<input type="text" name="posttype" value="regofi" style="display: none;"> 
 	</div>
 </form></div>
 <div id="formregdriver" style="padding-left: 8%; padding-right: 8%; display: none">
@@ -162,10 +165,10 @@ $(document).ready(function(){
 	<input type="number" name="numcel" min="1000" placeholder="Número de Celular" class="form-control">
 	</div>
 	<div class="form-group">
-		<input type="email" name="email" placeholder="Correo electrónico" class="form-control">
+		<input type="email" name="email" autocomplete="username" placeholder="Correo electrónico" class="form-control">
 	</div>
 	<div class="form-group">
-		<input type="password" name="password" placeholder="Contraseña" class="form-control">
+		<input type="password" name="password" autocomplete="current-password" placeholder="Contraseña" class="form-control">
 	</div>
 	Género: 
 	<div class="form-check-inline">
@@ -180,9 +183,9 @@ $(document).ready(function(){
 	</div>
 	<br>
 	<div class="form-group">
-	<button class="btn" type="button" id="cancelar3">Cancelar</button>
-	<input type="text" name="posttype" value="regdriver" style="display: none;">
 	<button type="submit" class="btn btn-success">Registrar</button> 
+	<button class="btn btnright" type="button" id="cancelar3">Cancelar</button>
+	<input type="text" name="posttype" value="regdriver" style="display: none;">
 	</div>
 </form></div>
 <?php

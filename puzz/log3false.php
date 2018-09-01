@@ -1,0 +1,1 @@
+<a onclick="document.getElementById('logform').style.display='block'; document.getElementById('regform').style.display='none';"><i class="fa fa-user-circle hdr-flexitem"></i></a>

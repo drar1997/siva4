@@ -2,14 +2,14 @@
 	<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 	<h2>Inicia Sesión</h2>
 	<div class="form-group">
-		<input type="email" name="email" placeholder="Correo electrónico" class="form-control">
+		<input type="email" name="email" autocomplete="username" placeholder="Correo electrónico" class="form-control">
 	</div>
 	<div class="form-group">
-		<input type="password" name="password" placeholder="Contraseña" class="form-control">
+		<input type="password" name="password" placeholder="Contraseña" autocomplete="current-password" class="form-control">
 	</div>
 	<div class="form-group">
 	<button type="submit" class="btn btn-success" style="float: right; margin-left: 15px;">Acceder</button> 
-	<button class="btn" type="button" id="cancelarlog" style="float: right;">Cancelar</button>
+	<button class="btn" type="button" style="float: right;" onclick="document.getElementById('logform').style.display='none';">Cancelar</button>
 	<input type="text" name="posttype" value="loginp" style="display: none;">
 	</div>
 </form>

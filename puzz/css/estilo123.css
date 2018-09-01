@@ -1,9 +1,29 @@
+html{
+	height: 100%;
+}
 body{
 	font-family: 'Raleway', sans-serif;
+	height: 100%;
+	width: 100%;
 }
 h2{
 	font-family: 'Marcellus SC', serif; 
 	font-size: 26px;
+}
+.btn-success{
+	background: #CF0E16; 
+	border-color: #CF0E16; 
+	color: white;
+	float: right;
+	margin-left: 10px;
+}
+.btn-successrow{
+	background: #CF0E16; 
+	border-color: #CF0E16; 
+	color: white;
+}
+.btnright{
+	float: right;
 }
 header{
 			font-family: 'Marcellus SC', serif; 
@@ -66,12 +86,13 @@ a:hover{
 	color: white;
 }
 section{
-	background: white;
-	height: auto;
+	background-image: url("../../img/background.jpg");
+	height: 100%;
+	width: 100%-50px;
 }
 .optboxs{
-	background: #E57373;
-	color: #3c3c3c;
+	background: white;
+	color: #CF0E16;
 	font-family: 'Marcellus SC', serif;
 	size: 22px;
 	box-shadow: 2px 4px 10px rgba(0,0,0,.2);
