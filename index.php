@@ -31,7 +31,7 @@
 						        require_once('puzz/appconductor.php');
 						        break;
 						    default:
-						        echo "There is an issue with your account please contact our tech department.";
+						        echo "There is an issue with your account, please contact our tech department.";
 						}
 				}
 			?>
@@ -42,6 +42,7 @@
 		<div id="regform" style="display: none;" >
 		 	<?php require_once('puzz/signup.php'); ?>
 		 </div>
+		 <p style="text-align: center; color: grey; font-family: Raleway, sans-serif; font-size: 60px; margin-top: 300px;">Estás listo para viajar?</p>
 	 </section>
 </body>
 </html>

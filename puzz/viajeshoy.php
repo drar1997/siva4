@@ -1,12 +1,12 @@
 <div id="verphptlv" style="display: none;">
-	<h3>Listado de Todos los Viajes</h3>
-	<table class="table table-striped">
+	<h3 style="margin-left: 20px;">Listado de Todos los Viajes de Hoy</h3>
+	<table style="background: white;" class="table table-striped">
 		<tr>
 			<th>#</th><th>Lugar de Salida</th><th>Lugar de Llegada</th><th>Fecha y Hora de Salida</th><th>Fecha y Hora de llegada</th><th>Número de Unidad</th><th>Id del conductor</th>
 		</tr>
 		<?php 
 			require('puzz/dbconnect.php');
-			$sql = "SELECT * FROM  rutas";
+			$sql = "SELECT * FROM  rutas WHERE date(fhsalida) = CURDATE();";
 			$result = $conn->query($sql);
 			if ($result->num_rows > 0) {
 

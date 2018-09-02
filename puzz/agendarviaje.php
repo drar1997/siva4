@@ -20,6 +20,9 @@
 		<input type="text" name="idconductor" placeholder="Id del Conductor" class="form-control">
 	</div>
 	<div class="form-group">
+		<input type="number" name="costotckt" placeholder="Costo del Boleto" class="form-control" min="1" max="10000000">
+	</div>
+	<div class="form-group">
 	<button class="btn canyshowfunc" type="button">Cancelar</button>
 	<input type="text" name="posttype" value="agviaj" style="display: none;">
 	<button type="submit" class="btn btn-success">Registrar</button> 
@@ -28,7 +31,7 @@
 <?php 
 	if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["posttype"] == "agviaj"){
 
-			if (empty($_POST["lsalida"]) or empty($_POST["lllegada"]) or empty($_POST["fhsalida"]) or empty($_POST["fhllegada"]) or empty($_POST["numunidad"]) or empty($_POST["idconductor"])) {
+			if (empty($_POST["lsalida"]) or empty($_POST["lllegada"]) or empty($_POST["fhsalida"]) or empty($_POST["fhllegada"]) or empty($_POST["numunidad"]) or empty($_POST["idconductor"]) or empty($_POST["costotckt"])) {
 				  echo "<script>alert('Por favor rellena todos los datos.');</script>";
 			  }else{
 
@@ -38,6 +41,7 @@
 				$fhllegada = $_POST["fhllegada"];
 				$numunidad = $_POST["numunidad"];
 				$idconductor = $_POST["idconductor"];
+				$costotckt = $_POST["costotckt"];
 				
 				function test_input($data) {
 					  $data = trim($data);
@@ -52,12 +56,13 @@
 				$fhllegada= test_input($fhllegada);
 				$numunidad = test_input($numunidad);
 				$idconductor = test_input($idconductor);
+				$costotckt = test_input($costotckt);
 
 				//MySQl
 				require_once('puzz/dbconnect.php');
 				
-								   $sqll = "INSERT INTO rutas (lsalida, lllegada, fhsalida, fhllegada, numunidad, idconductor)
-									VALUES ('$lsalida', '$lllegada', '$fhsalida', '$fhllegada', '$numunidad', '$idconductor')";
+								   $sqll = "INSERT INTO rutas (lsalida, lllegada, fhsalida, fhllegada, numunidad, idconductor, costotckt)
+									VALUES ('$lsalida', '$lllegada', '$fhsalida', '$fhllegada', '$numunidad', '$idconductor', '$costotckt')";
 
 									if ($conn->query($sqll) === TRUE) {
 									    echo "<script>alert('Felicitaciones! Registro Exitoso!');</script>";
@@ -66,5 +71,6 @@
 									}
 
 				
-				$conn->close();}}
+				require_once('puzz/dbclose.php');			
+			}}
  ?>

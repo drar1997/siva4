@@ -1,1 +1,1 @@
-<a onclick="document.getElementById('logform').style.display='block'; document.getElementById('regform').style.display='none';"><i class="fa fa-smile-o hdr-flexitem"></i></a>
+<a href='puzz/closesession.php'><i class="fa fa-smile-o hdr-flexitem"></i></a>

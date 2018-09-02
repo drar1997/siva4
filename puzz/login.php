@@ -91,10 +91,6 @@
 		    
 						}}}
 
-		$conn->close();
-		if (!empty($_SESSION['usertype'])) {
-			echo "<script language=Javascript> location.href=\"index.php\"; </script>"; 
-			die(); 
-		}
+		require_once('puzz/dbclose.php');
 	}}
 ?>

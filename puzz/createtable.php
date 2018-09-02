@@ -1,7 +1,7 @@
 <?php		
 		require_once('dbconnect.php');
 
-		$sql = "CREATE TABLE oficinistas (
+		$sql = "CREATE TABLE IF NOT EXISTS oficinistas (
 				id INT(3) AUTO_INCREMENT PRIMARY KEY,
 				ltrab VARCHAR(20) NOT NULL,
 				name VARCHAR(20) NOT NULL,
@@ -13,7 +13,7 @@
 				password VARCHAR(255) NOT NULL,
 				gender VARCHAR(10) NOT NULL
 				);";
-		$sql .= "CREATE TABLE conductores (
+		$sql .= "CREATE TABLE IF NOT EXISTS conductores (
 				id INT(3) AUTO_INCREMENT PRIMARY KEY,
 				cityres VARCHAR(20) NOT NULL,
 				name VARCHAR(20) NOT NULL,
@@ -25,7 +25,7 @@
 				password VARCHAR(255) NOT NULL,
 				gender VARCHAR(10) NOT NULL
 				);";
-		$sql .= "CREATE TABLE clientes (
+		$sql .= "CREATE TABLE IF NOT EXISTS clientes (
 				id INT(3) AUTO_INCREMENT PRIMARY KEY,
 				email VARCHAR(50) NOT NULL,
 				password VARCHAR(255) NOT NULL,
@@ -36,16 +36,17 @@
 				numcel INT(20) UNSIGNED NOT NULL,
 				gender VARCHAR(10) NOT NULL
 				);";
-		$sql .= "CREATE TABLE rutas (
+		$sql .= "CREATE TABLE IF NOT EXISTS rutas (
 				id BIGINT(255) AUTO_INCREMENT PRIMARY KEY,
 				lsalida VARCHAR(20) NOT NULL,
 				lllegada VARCHAR(20) NOT NULL,
 				fhsalida DATETIME NOT NULL,
 				fhllegada DATETIME NOT NULL,
 				numunidad INT(5) UNSIGNED NOT NULL,
-				idconductor INT(3) UNSIGNED NOT NULL
+				idconductor INT(3) UNSIGNED NOT NULL,
+				costotckt INT(7) UNSIGNED NOT NULL
 				);";
-		$sql .= "CREATE TABLE cars (
+		$sql .= "CREATE TABLE IF NOT EXISTS cars (
 				numunidad INT(5) UNSIGNED NOT NULL PRIMARY KEY,
 				placa VARCHAR(10) NOT NULL,
 				marca VARCHAR(20) NOT NULL,
@@ -59,7 +60,7 @@
 				servbath INT(1) NOT NULL,
 				otrosserv VARCHAR(100)
 				);";
-		$sql .= "CREATE TABLE rviajes (
+		$sql .= "CREATE TABLE IF NOT EXISTS rviajes (
 				id BIGINT(255) PRIMARY KEY NOT NULL,
 				p1 BIGINT(20) UNSIGNED,
 				p2 BIGINT(20) UNSIGNED,

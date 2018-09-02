@@ -1,10 +1,13 @@
 html{
 	height: 100%;
+	background-image: url("../../img/background.jpg");
+	background-repeat: repeat;
 }
 body{
 	font-family: 'Raleway', sans-serif;
 	height: 100%;
 	width: 100%;
+	background: transparent;
 }
 h2{
 	font-family: 'Marcellus SC', serif; 
@@ -51,7 +54,19 @@ header{
 		}
 		
 
-		@media only screen and (max-width: 450px){
+		@media only screen and (max-width: 330px){
+			header h1{
+				font-size: 18px;
+				line-height: 50px;
+			}
+			header div div div i.hdr-flexitem{
+				font-size: 18px;
+				line-height: 50px;
+			}
+			header div div div div.hdr-bigscr{
+				display: none;
+			}
+		}@media only screen and (max-width: 450px) and (min-width: 331px){
 			header h1{
 				font-size: 25px;
 				line-height: 50px;
@@ -86,7 +101,7 @@ a:hover{
 	color: white;
 }
 section{
-	background-image: url("../../img/background.jpg");
+
 	height: 100%;
 	width: 100%-50px;
 }
