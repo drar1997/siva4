@@ -18,7 +18,7 @@
 	require_once('puzz/header2.php');
 	 ?>
 	<section>
-		<div style="width: 100%; height: 10px;"></div>
+		<div style="width: 100%; height: 10px;" id="blankspc"></div>
 		 <!--EMPIEZA LA APP-->
 		<div id="appstart">
 			<?php 
@@ -30,7 +30,7 @@
 						        require_once('puzz/appviajero.php');
 						        break;
 						    case "oficinista":
-						        require_once('puzz/appoficinista.php');
+						        require_once('puzz/appoficinista2.php');
 						        break;
 						    case "conductor":
 						        require_once('puzz/appconductor.php');

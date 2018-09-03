@@ -54,44 +54,7 @@ header{
 		}
 		
 
-		@media only screen and (max-width: 330px){
-			header h1{
-				font-size: 18px;
-				line-height: 50px;
-			}
-			header div div div i.hdr-flexitem{
-				font-size: 18px;
-				line-height: 50px;
-			}
-			header div div div div.hdr-bigscr{
-				display: none;
-			}
-		}@media only screen and (max-width: 450px) and (min-width: 331px){
-			header h1{
-				font-size: 25px;
-				line-height: 50px;
-			}
-			header div div div i.hdr-flexitem{
-				font-size: 25px;
-				line-height: 50px;
-			}
-			header div div div div.hdr-bigscr{
-				display: none;
-			}
-		}
-		@media only screen and (max-width: 950px) and (min-width: 451px){
-			header h1{
-				font-size: 35px;
-				line-height: 50px;
-			}
-			header div div div i.hdr-flexitem{
-				font-size: 35px;
-				line-height: 50px;
-			}
-			header div div div div.hdr-bigscr{
-				display: none;
-			}
-		}
+
 a{
 	text-decoration: none;
 	color: white;
@@ -130,3 +93,92 @@ section{
 .textdivaa{
 	padding: 15px;
 }
+.shdr{
+	height: 40px; 
+	width: 100%; 
+	background: white; 
+	margin-left: 0px; 
+	margin-right: 0px; 
+	line-height: 40px; 
+	font-size: 30px; 
+	color: #3c3c3c; 
+	font-family: 'Raleway', sans-serif;
+	color: black;
+	}
+hr{
+	display: block;
+    margin-top: -7px;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    border-top: none;
+    border-left: none;
+    border-bottom-color: black;
+    border-right: none;
+    border-style: solid;
+    border-width: 0.5px;
+}
+.joder1{
+	width: 90%; 
+	display: inline-block;
+}
+.joder2{
+	width: 10%; 
+	float: right; 
+	display: inline-block; 
+	text-align: right;
+}
+@media only screen and (max-width: 330px){
+			header h1{
+				font-size: 18px;
+				line-height: 50px;
+			}
+			header div div div i.hdr-flexitem{
+				font-size: 18px;
+				line-height: 50px;
+			}
+			header div div div div.hdr-bigscr{
+				display: none;
+			}
+			.shdr{
+				font-size: 14px;
+			}
+			.joder1{
+				width: 70%;
+			}
+			.joder2{
+				width: 30%;
+			}
+			.dependblank{
+				display: none;
+			}
+			.quitarpadding{
+				padding-right: 0px;
+				padding-left: 0px;
+			}
+		}@media only screen and (max-width: 450px) and (min-width: 331px){
+			header h1{
+				font-size: 25px;
+				line-height: 50px;
+			}
+			header div div div i.hdr-flexitem{
+				font-size: 25px;
+				line-height: 50px;
+			}
+			header div div div div.hdr-bigscr{
+				display: none;
+			}
+		}
+		@media only screen and (max-width: 950px) and (min-width: 451px){
+			header h1{
+				font-size: 35px;
+				line-height: 50px;
+			}
+			header div div div i.hdr-flexitem{
+				font-size: 35px;
+				line-height: 50px;
+			}
+			header div div div div.hdr-bigscr{
+				display: none;
+			}
+		}

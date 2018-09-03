@@ -33,3 +33,5 @@
 <link href="https://fonts.googleapis.com/css?family=Marcellus+SC|Raleway" rel="stylesheet">
 <!--Iconos Font Awesome Icons-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--Iconos de Google Material Desing-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
