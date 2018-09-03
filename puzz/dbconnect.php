@@ -1,6 +1,6 @@
 <?php  
 //MySQl
-		$servernamedb = "127.0.0.1:3306";
+		$servernamedb = "localhost";
 		$usernamedb = "root";
 		$passworddb = "";
 		$dbname = "siva";
