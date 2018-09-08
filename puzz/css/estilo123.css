@@ -38,17 +38,17 @@ header{
 			overflow: hidden;
 			
 		}
-		header h1{
+header h1{
 			text-align: center;
 			font-family: 'Marcellus SC', serif; 
 			color: white;
 			font-size: 45px;
 		}
-		header div div div.hdr-containerflex{
+header div div div.hdr-containerflex{
 			display: flex;
 			justify-content: center;
 			align-content: center;		}
-		header div div div i.hdr-flexitem{
+header div div div i.hdr-flexitem{
 			font-size: 40px; 
 			line-height: 50px;
 		}
@@ -118,16 +118,7 @@ hr{
     border-style: solid;
     border-width: 0.5px;
 }
-.joder1{
-	width: 90%; 
-	display: inline-block;
-}
-.joder2{
-	width: 10%; 
-	float: right; 
-	display: inline-block; 
-	text-align: right;
-}
+
 @media only screen and (max-width: 330px){
 			header h1{
 				font-size: 18px;
@@ -143,12 +134,7 @@ hr{
 			.shdr{
 				font-size: 14px;
 			}
-			.joder1{
-				width: 70%;
-			}
-			.joder2{
-				width: 30%;
-			}
+			
 			.dependblank{
 				display: none;
 			}
@@ -168,6 +154,17 @@ hr{
 			header div div div div.hdr-bigscr{
 				display: none;
 			}
+			.shdr{
+				font-size: 14px;
+			}
+			
+			.dependblank{
+				display: none;
+			}
+			.quitarpadding{
+				padding-right: 0px;
+				padding-left: 0px;
+			}
 		}
 		@media only screen and (max-width: 950px) and (min-width: 451px){
 			header h1{
@@ -181,4 +178,31 @@ hr{
 			header div div div div.hdr-bigscr{
 				display: none;
 			}
+			.shdr{
+				font-size: 20px;
+			}
 		}
+
+nav{
+	width: 100%;
+	background: #F0F0F0;
+	margin: 0px;
+	padding: 0px;
+}
+.txtblack{
+	color: black;
+}
+.txtblack:hover{
+	color: black;
+}
+ul{
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none; 
+}
+li{
+	display: inline-block;
+	padding-left: 0px;
+	padding-right: 0px;
+	list-style: none;
+}
