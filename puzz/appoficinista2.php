@@ -9,10 +9,10 @@
 	<div class="col-4 quitarpadding">
 		<div class="form-group">
 			<select class="form-control" id="selectfunc">
-				<option value="">Selecionar Categoría</option>
-				<option value="ao-viajes">Viajes</option>
-				<option value="ao-boletos">Boletos</option>
-				<option value="ao-vehiculos">Vehículos</option>
+				<option value="">--Selecionar Categoría--</option>
+				<option value="ao-selectfilter-viajes">Viajes</option>
+				<option value="ao-selectfilter-boletos">Boletos</option>
+				<option value="ao-selectviajes-vehiculos">Vehículos</option>
 			</select>
 		</div>
 	</div>
@@ -21,23 +21,32 @@
 				<!--VARIOS SELECT-->
 
 					<!--LISTADO DE VIAJES-->
-					<select class="form-control" id="ao-selectfilter-viajes">
-						<option>Todos</option>
-						<option>Hoy</option>
-						<option>Ayer</option>
-					</select>
+					<div id="ao-selectfilter-viajes">
+						<select class="form-control" id="ao-selectfilter-viajes2">
+							<option value="">--Seleccionar Filtros--</option>
+							<option value="ao-viajes-listado-vertodos">Todos</option>
+							<option value="ao-viajes-listado-verhoy">Hoy</option>
+							<option value="ao-viajes-listado-verayer">Ayer</option>
+						</select>
+					</div>
 					<!--LISTADO DE BOLETOS-->
-					<select class="form-control" id="ao-selectfilter-boletos">
-						<option>Añadir o Vender Boletos</option>
-						<option>Hoy</option>
-						<option>Ayer</option>
-					</select>
+					<div id="ao-selectfilter-boletos">
+						<select class="form-control" id="ao-selectfilter-boletos2">
+							<option value="">--Seleccionar Filtros--</option>
+							<option value="ao-boletos-administrarboletos-anadir">Añadir o Vender Boletos</option>
+							<option value="ao-boletos-administrarboletos-remover">Remover</option>
+							<option value="ao-boletos-administrarboletos-editar">Editar</option>
+						</select>
+					</div>
 					<!--LISTADO DE VEHICULOS-->
-					<select class="form-control" id="ao-selectviajes-vehiculos">
-						<option>Todos</option>
-						<option>Hoy</option>
-						<option>Ayer</option>
-					</select>
+					<div id="ao-selectviajes-vehiculos">
+						<select class="form-control" id="ao-selectviajes-vehiculos2">
+							<option value="">--Seleccionar Filtros--</option>
+							<option value="ao-vehiculos-administrarvehiculos-anadir">Añadir Vehículo</option>
+							<option value="ao-vehiculos-administrarvehiculos-remover">Remover</option>
+							<option value="ao-vehiculos-administrarvehiculos-editar">Editar</option>
+						</select>
+					</div>
 			</div>
 	</div>
 	<div class="col-1"></div>
