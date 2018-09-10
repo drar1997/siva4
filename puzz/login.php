@@ -1,4 +1,4 @@
-<div id="login" style="padding-left: 8%; padding-right: 8%;">
+<div id="login" style="padding-left: 8%; padding-right: 8%; margin-top: 40px;">
 	<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 	<h2>Inicia Sesión</h2>
 	<div class="form-group">

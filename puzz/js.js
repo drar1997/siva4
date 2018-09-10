@@ -17,19 +17,30 @@ $(document).ready(function(){
 		$('#ao-viajes').children('div').hide();
 		$('#ao-viajes-listado').show();
 		$('#ao-viajes-listado').children('div').hide();
-		$('#ao-viajes-listado').children(varselectfuncdos).show();
+		$('#ao-viajes-administrarviajes').show();
+		$('#ao-viajes-administrarviajes').children('div').hide();
+		$(varselectfuncdos).show();
 	});
 
 	$('#ao-selectfilter-boletos2').on('change', function(){
-		var varselectfuncdos = '#'+$(this).val();
+		var varselectfunctres = '#'+$(this).val();
 
 		$('#ao-boletos').show();
 		$('#ao-boletos').children('div').hide();
 		$('#ao-boletos-administrarboletos').show();
 		$('#ao-boletos-administrarboletos').children('div').hide();
-		$('#ao-boletos-administrarboletos').children(varselectfuncdos).show();
+		$('#ao-boletos-administrarboletos').children(varselectfunctres).show();
 	});
 
+	$('#ao-selectfilter-vehiculos2').on('change', function(){
+		var varselectfunccuatro = '#'+$(this).val();
+
+		$('#ao-vehiculos').show();
+		$('#ao-vehiculos').children('div').hide();
+		$('#ao-vehiculos-administrarvehiculos').show();
+		$('#ao-vehiculos-administrarvehiculos').children('div').hide();
+		$('#ao-vehiculos-administrarvehiculos').children(varselectfunccuatro).show();
+	});
 
 
 });

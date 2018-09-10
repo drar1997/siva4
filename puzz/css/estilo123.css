@@ -206,3 +206,16 @@ li{
 	padding-right: 0px;
 	list-style: none;
 }
+
+.icons2hdr{
+	text-align: center;
+	color: black;
+	font-size: 40px;
+}
+.tablewhite {
+	background-color: white;
+	background: white;
+}
+.nodisplay{
+	display: none;
+}
