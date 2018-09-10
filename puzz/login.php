@@ -38,7 +38,7 @@
 		$password= hash('sha512',$password);
 		
 
-		require_once('puzz/dbconnect.php');
+		require('puzz/dbconnect.php');
 
 		$sql = "SELECT * FROM  clientes WHERE email = '$email' AND password = '$password'";
 
@@ -87,10 +87,10 @@
 				    } else {
 						$_SESSION['failure'] = "El usuario y/o la contraseña no concuerdan con nuestros registros, por favor verifica que los hayas escrito correctamente e intenta de nuevo.";
 						$_SESSION['failureshow'] = "#logform";
-						require_once('puzz/logdataerr.php');
+						require('puzz/logdataerr.php');
 		    
 						}}}
 
-		require_once('puzz/dbclose.php');
+		require('puzz/dbclose.php');
 	}}
 ?>

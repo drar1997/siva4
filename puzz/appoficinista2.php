@@ -271,7 +271,7 @@
 								$costotckt = test_input($costotckt);
 
 								//MySQl
-								require_once('puzz/dbconnect.php');
+								require('puzz/dbconnect.php');
 								
 												   $sqll = "INSERT INTO rutas (lsalida, lllegada, fhsalida, fhllegada, numunidad, idconductor, costotckt)
 													VALUES ('$lsalida', '$lllegada', '$fhsalida', '$fhllegada', '$numunidad', '$idconductor', '$costotckt')";
@@ -352,7 +352,7 @@
 								$costotckt = test_input($costotckt);
 
 								//MySQl
-								require_once('puzz/dbconnect.php');
+								require('puzz/dbconnect.php');
 								
 												   $sqll = "INSERT INTO rutas (lsalida, lllegada, fhsalida, fhllegada, numunidad, idconductor, costotckt)
 													VALUES ('$lsalida', '$lllegada', '$fhsalida', '$fhllegada', '$numunidad', '$idconductor', '$costotckt')";
@@ -432,7 +432,7 @@
 								$costotckt = test_input($costotckt);
 
 								//MySQl
-								require_once('puzz/dbconnect.php');
+								require('puzz/dbconnect.php');
 								
 												   $sqll = "INSERT INTO rutas (lsalida, lllegada, fhsalida, fhllegada, numunidad, idconductor, costotckt)
 													VALUES ('$lsalida', '$lllegada', '$fhsalida', '$fhllegada', '$numunidad', '$idconductor', '$costotckt')";
