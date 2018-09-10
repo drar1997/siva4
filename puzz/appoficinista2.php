@@ -9,7 +9,7 @@
 	<div class="col-6 quitarpadding">
 		<div class="form-group">
 			<select class="form-control" id="selectfunc">
-				<option value="">--Selecionar Categoría--</option>
+				<option disabled="selected">--Selecionar Categoría--</option>
 				<option value="ao-selectfilter-viajes">Viajes</option>
 				<option value="ao-selectfilter-boletos">Boletos</option>
 				<option value="ao-selectfilter-vehiculos">Vehículos</option>

@@ -37,6 +37,8 @@
 						    default:
 						        echo "There is an issue with your account, please contact our tech department.";
 						}
+				}else{
+					require_once('puzz/guest.php');
 				}
 			?>
 		</div>

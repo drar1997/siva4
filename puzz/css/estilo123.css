@@ -101,9 +101,10 @@ section{
 	margin-right: 0px; 
 	line-height: 40px; 
 	font-size: 30px; 
-	color: #3c3c3c; 
+	color: #CF0E16; 
 	font-family: 'Raleway', sans-serif;
 	color: black;
+	box-shadow: 2px 4px 10px rgba(0,0,0,.2);
 	}
 hr{
 	display: block;
@@ -218,4 +219,15 @@ li{
 }
 .nodisplay{
 	display: none;
+}
+.form-control {
+    color: #CF0E16;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .1s ease-in-out,box-shadow .1s ease-in-out;
+}
+option{
+	color: #CF0E16;
 }
