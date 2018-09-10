@@ -295,25 +295,7 @@
 			<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 					<h2>Eliminar un Viaje</h2>
 					<div class="form-group">
-						<input type="text" name="lsalida" placeholder="Lugar de salida" class="form-control">
-					</div>
-					<div class="form-group">
-						<input type="text" name="lllegada" placeholder="Lugar de llegada" class="form-control">
-					</div>
-					<div class="form-group">
-						<input type="datetime-local" name="fhsalida" placeholder="Fecha y Hora de Salida" class="form-control">
-					</div>
-					<div class="form-group">
-						<input type="datetime-local" name="fhllegada" placeholder="Fecha y Hora de Llegada" class="form-control">
-					</div>
-					<div class="form-group">
-						<input type="number" name="numunidad" placeholder="Número de Unidad" class="form-control">
-					</div>
-					<div class="form-group">
-						<input type="text" name="idconductor" placeholder="Id del Conductor" class="form-control">
-					</div>
-					<div class="form-group">
-						<input type="number" name="costotckt" placeholder="Costo del Boleto" class="form-control" min="1" max="10000000">
+						<input type="number" name="id" placeholder="id del viaje" class="form-control">
 					</div>
 					<div class="form-group">
 					<button class="btn canyshowfunc" type="button">Cancelar</button>
@@ -324,17 +306,11 @@
 				<?php 
 					if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["posttype"] == "remviaj"){
 
-							if (empty($_POST["lsalida"]) or empty($_POST["lllegada"]) or empty($_POST["fhsalida"]) or empty($_POST["fhllegada"]) or empty($_POST["numunidad"]) or empty($_POST["idconductor"]) or empty($_POST["costotckt"])) {
+							if (empty($_POST["id"])) {
 								  echo "<script>alert('Por favor rellena todos los datos.');</script>";
 							  }else{
 
-								$lsalida = $_POST["lsalida"];
-								$lllegada = $_POST["lllegada"];
-								$fhsalida = $_POST["fhsalida"];
-								$fhllegada = $_POST["fhllegada"];
-								$numunidad = $_POST["numunidad"];
-								$idconductor = $_POST["idconductor"];
-								$costotckt = $_POST["costotckt"];
+								$id = $_POST["id"];
 								
 								function test_input($data) {
 									  $data = trim($data);
@@ -343,22 +319,15 @@
 									  return $data;
 									}
 
-								$lsalida= test_input($lsalida);
-								$lllegada= test_input($lllegada);
-								$fhsalida= test_input($fhsalida);
-								$fhllegada= test_input($fhllegada);
-								$numunidad = test_input($numunidad);
-								$idconductor = test_input($idconductor);
-								$costotckt = test_input($costotckt);
+								$id= test_input($id);
 
 								//MySQl
 								require('puzz/dbconnect.php');
 								
-												   $sqll = "INSERT INTO rutas (lsalida, lllegada, fhsalida, fhllegada, numunidad, idconductor, costotckt)
-													VALUES ('$lsalida', '$lllegada', '$fhsalida', '$fhllegada', '$numunidad', '$idconductor', '$costotckt')";
+												   $sqll = "DELETE FROM rutas WHERE id = '$id';";
 
 													if ($conn->query($sqll) === TRUE) {
-													    echo "<script>alert('Felicitaciones! Registro Exitoso!');</script>";
+													    echo "<script>alert('Felicitaciones! Registro Eliminado!');</script>";
 													} else {
 													    echo "Error: " . $sqll . "<br>" . $conn->error;
 													}
