@@ -1,3 +1,20 @@
+
+
+function mostrareditar() {
+		$('#ao').children('div').show();
+		$('#ao-selectfilter').children('div').show();
+		$('#ao').children('div').hide();
+		$('#ao-selectfilter').children('div').hide();
+		$('#ao-viajes').show();
+		$('#ao-viajes').children('div').hide();
+		$('#ao-viajes-listado').show();
+		$('#ao-viajes-listado').children('div').hide();
+		$('#ao-viajes-administrarviajes').show();
+		$('#ao-viajes-administrarviajes').children('div').hide();
+		$('#ao-viajes-administrarviajes-editar').show();
+	};
+
+
 $(document).ready(function(){
 	$('#ao').children('div').hide();
 	$('#ao-selectfilter').children('div').hide();
@@ -42,5 +59,6 @@ $(document).ready(function(){
 		$('#ao-vehiculos-administrarvehiculos').children(varselectfunccuatro).show();
 	});
 
-
+	
 });
+
