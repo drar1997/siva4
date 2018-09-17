@@ -1,5 +1,11 @@
-<!-- Titulo de la página -->
-<title>Transporte</title>
+<?php 
+	session_start();
+ ?>
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+	<!-- Titulo de la página -->
+<title>Cooptmotilon</title>
 <!-- UTF8-->
 <meta charset="utf-8">
 <!--Viewport-->
@@ -37,6 +43,51 @@
 <!--Iconos de Google Material Desing-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <!--Css-->
-<link rel="stylesheet" type="text/css" href="puzz/css/estilo123.css">
+<link rel="stylesheet" type="text/css" href="../puzz/css/estilo123.css">
 <!--Javascript personalizado-->
-<script src="puzz/js.js"></script>
+<script src="../puzz/js.js"></script>
+</head>
+<body>
+	<?php  
+		if (!empty($_SESSION['collectiondata'])) {	
+			echo "<pre>";
+			print_r($_POST);	
+			print_r($_SESSION['collectiondata']);
+			echo "</pre>";
+			echo "<br>";
+			echo "<form action='venderboletos4.php' method='POST'>
+												<input  class='nodisplay' type='text' name='posttype' value='venderboletos4'>
+												 
+										";
+			echo "<table class=\"table table-striped tablewhite\">";
+			echo "<tr>
+					<th>N° de asiento</th>
+					<th>Número de documento de la persona que viajará en este asiento</th>
+				</tr>";
+			
+			foreach($_POST as $key=>$value){
+					if ($key == "posttype") {
+						  continue;
+					} else {
+						echo "<tr>
+					<td>$key</td>
+					<td>
+						<input type='number' name='p$key' placeholder='Numero de documento'>
+					</td>
+					</tr>";
+					}
+			}
+					
+			echo "</table>";		 
+			$countasientos = count($_POST)-1;
+			$costoasiento = $_SESSION['collectiondata'][7];
+			$totalapagar = $countasientos*$costoasiento;
+			echo "Total a pagar: $totalapagar";
+			
+			echo "<button type='submit' class='btn btn-success'>Comprar</button></form>";
+		}else{
+			echo "No Hello";
+		}
+	?>
+</body>
+</html>

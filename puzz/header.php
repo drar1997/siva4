@@ -1,7 +1,7 @@
 <header style="overflow: hidden;">
 	<div class="row">
 		<div class="col-md-4">
-				<a href="index.php"><h1 id="tgeneral">COOPTMOTILON</h1></a>
+				<a href="index.php"><h1 id="tgeneral">TRANSPORTE</h1></a>
 		</div>
 		<div class="col-md-4">
 		</div>

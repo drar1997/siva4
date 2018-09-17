@@ -1,5 +1,11 @@
-<!-- Titulo de la página -->
-<title>Transporte</title>
+<?php 
+	session_start();
+ ?>
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+	<!-- Titulo de la página -->
+<title>Cooptmotilon</title>
 <!-- UTF8-->
 <meta charset="utf-8">
 <!--Viewport-->
@@ -37,6 +43,62 @@
 <!--Iconos de Google Material Desing-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <!--Css-->
-<link rel="stylesheet" type="text/css" href="puzz/css/estilo123.css">
+<link rel="stylesheet" type="text/css" href="../puzz/css/estilo123.css">
 <!--Javascript personalizado-->
-<script src="puzz/js.js"></script>
+<script src="../puzz/js.js"></script>
+</head>
+<body>
+	
+	<?php 
+		if (!empty($_POST['posttype']) && $_POST['posttype'] == "venderboletos4") {
+			echo "<pre>";
+			print_r($_POST);
+			echo "</pre>";
+			$i = 1;
+			
+			$contardatosainsertar = count($_POST)-1;
+			foreach($_POST as $key=>$value){
+					if ($key == "posttype") {
+						  continue;
+					} else {
+
+						echo "$key=$value<br>";
+						${"campo" . $i} = $key;
+						${"dato" . $i} = $value;
+						$i++;
+					}
+			}
+			$i = 1;
+			require('dbconnect.php');
+
+			while ($i <= $contardatosainsertar) {
+				
+				
+				$idrviaje = $_SESSION['collectiondata'][0];
+				$campo = ${"campo" . $i};
+				$dato = ${"dato" . $i};
+
+			
+			$sql = "UPDATE rviajes SET $campo ='$dato' WHERE id ='$idrviaje';";
+			if ($conn->query($sql) === TRUE) {
+				 echo "<script>alert('Boletos comprados');</script>";
+				$i++;
+			}
+							else {
+										echo "Error: " . $sql . "<br>" . $conn->error;
+										die('Fatal error');
+									}
+							
+
+
+						}#cerrando el while
+		$conn->close();
+
+
+		}else{
+			echo "No sirve pa una mierdish";
+		}
+	 ?>
+	
+</body>
+</html>

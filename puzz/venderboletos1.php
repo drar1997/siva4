@@ -1,5 +1,11 @@
-<!-- Titulo de la página -->
-<title>Transporte</title>
+<?php 
+	session_start();
+ ?>
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+	<!-- Titulo de la página -->
+<title>Cooptmotilon</title>
 <!-- UTF8-->
 <meta charset="utf-8">
 <!--Viewport-->
@@ -37,6 +43,59 @@
 <!--Iconos de Google Material Desing-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <!--Css-->
-<link rel="stylesheet" type="text/css" href="puzz/css/estilo123.css">
+<link rel="stylesheet" type="text/css" href="../puzz/css/estilo123.css">
 <!--Javascript personalizado-->
-<script src="puzz/js.js"></script>
+<script src="../puzz/js.js"></script>
+</head>
+<body>
+	<table class="table table-striped tablewhite">
+	<?php 
+		if (!empty($_POST['lsalida']) && $_POST['posttype'] == "venderboletos1") {
+			$saliendode = $_POST['lsalida'];
+			$llegandoa = $_POST['lllegada'];
+			$fecha = $_POST['fsalida'];
+
+			require('dbconnect.php');
+			$sql = "SELECT * FROM rutas WHERE lsalida = '$saliendode' AND lllegada = '$llegandoa' AND date(fhsalida) = date('$fecha');";
+			$result = $conn->query($sql);
+							if ($result->num_rows > 0) {
+								echo "<h1>Viajes de $saliendode hacia $llegandoa del la fecha $fecha</h1>";
+								echo "<tr>
+											<th>#</th><th>Hora de Salida</th><th>Fecha y Hora de llegada</th><th>Costo Ticket</th>
+										</tr>";
+
+								while($row = $result->fetch_assoc()) {
+						        
+							    $id = $row["id"];
+							    $lsalida = $row["lsalida"];
+							    $lllegada = $row["lllegada"];
+							    $fhsalida = $row["fhsalida"];
+							    $fhllegada = $row["fhllegada"];
+							    $numunidad = $row["numunidad"];
+							    $idconductor = $row["idconductor"];
+							    $costotckt = $row["costotckt"];
+							    $date = date("h:i a", strtotime($fhsalida));
+							    echo "<tr>
+											<td>$id</td><td>$date</td><td>$fhllegada</td><td>$costotckt</td>
+										</tr>";
+						   		 }
+
+						   		 echo "<form action='venderboletos2.php' method='POST'>
+											<input type='number' name='idselected'>
+											<input  class='nodisplay' type='text' name='posttype' value='venderboletos2'>
+											<button type='submit' class='btn btn-success'>Seleccionar esta ruta</button> 
+										</form>";
+							}else {
+										$_SESSION['failure'] = "No hemos podido conseguir viajes de esa fecha, intenta más tarde.";
+										$_SESSION['failureshow'] = "#verphptlv";
+										require('logdataerr.php');
+						    
+										}
+							$conn->close();
+		}else{
+			echo "No sirve pa una mierdish";
+		}
+	 ?>
+	 </table>
+</body>
+</html>

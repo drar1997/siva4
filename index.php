@@ -14,6 +14,8 @@
 	 ?>
 </head>
 <body>
+	<div class="cargandoo"></div>
+
 	<?php 
 	require_once('puzz/header2.php');
 	 ?>

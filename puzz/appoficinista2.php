@@ -9,7 +9,7 @@
 	<div class="col-6 quitarpadding">
 		<div class="form-group">
 			<select class="form-control" id="selectfunc">
-				<option disabled selected>--Selecionar Categoría--</option>
+				<option disabled selected>--Categoría--</option>
 				<option value="ao-selectfilter-viajes">Viajes</option>
 				<option value="ao-selectfilter-boletos">Boletos</option>
 				<option value="ao-selectfilter-vehiculos">Vehículos</option>
@@ -23,7 +23,7 @@
 					<!--LISTADO DE VIAJES-->
 					<div id="ao-selectfilter-viajes">
 						<select class="form-control" id="ao-selectfilter-viajes2">
-							<option disabled selected>--Seleccionar Filtros--</option>
+							<option disabled selected>--Filtros--</option>
 							<option value="ao-viajes-listado-vertodos">Todos</option>
 							<option value="ao-viajes-listado-verhoy">Hoy</option>
 							<option value="ao-viajes-listado-verayer">Ayer</option>
@@ -35,7 +35,7 @@
 					<!--LISTADO DE BOLETOS-->
 					<div id="ao-selectfilter-boletos">
 						<select class="form-control" id="ao-selectfilter-boletos2">
-							<option disabled selected>--Seleccionar Filtros--</option>
+							<option disabled selected>--Filtros--</option>
 							<option value="ao-boletos-administrarboletos-anadir">Añadir o Vender Boletos</option>
 							<option value="ao-boletos-administrarboletos-remover">Remover</option>
 							<option value="ao-boletos-administrarboletos-editar">Editar</option>
@@ -44,7 +44,7 @@
 					<!--LISTADO DE VEHICULOS-->
 					<div id="ao-selectfilter-vehiculos">
 						<select class="form-control" id="ao-selectfilter-vehiculos2">
-							<option disabled selected>--Seleccionar Filtros--</option>
+							<option disabled selected>--Filtros--</option>
 							<option value="ao-vehiculos-administrarvehiculos-anadir">Añadir Vehículo</option>
 							<option value="ao-vehiculos-administrarvehiculos-remover">Remover</option>
 							<option value="ao-vehiculos-administrarvehiculos-editar">Editar</option>
@@ -86,7 +86,7 @@
 							$result = $conn->query($sql);
 							if ($result->num_rows > 0) {
 								echo "<tr>
-											<th>#</th><th>Lugar de Salida</th><th>Lugar de Llegada</th><th>Fecha y Hora de Salida</th><th>Fecha y Hora de llegada</th><th>Número de Unidad</th><th>Id del conductor</th>
+											<th>#</th><th>Lugar de Salida</th><th>Lugar de Llegada</th><th>Fecha y Hora de Salida</th><th>Fecha y Hora de llegada</th><th>Número de Unidad</th><th>Id del conductor</th><th>Costo Ticket</th>
 										</tr>";
 
 								while($row = $result->fetch_assoc()) {
@@ -98,9 +98,10 @@
 							    $fhllegada = $row["fhllegada"];
 							    $numunidad = $row["numunidad"];
 							    $idconductor = $row["idconductor"];
+							    $costotckt = $row["costotckt"];
 
 							    echo "<tr>
-											<td id='numruta$id'>$id</td><td>$lsalida</td><td>$lllegada</td><td>$fhsalida</td><td>$fhllegada</td><td>$numunidad</td><td>$idconductor</td>
+											<td id='numruta$id'>$id</td><td>$lsalida</td><td>$lllegada</td><td>$fhsalida</td><td>$fhllegada</td><td>$numunidad</td><td>$idconductor</td><td>$costotckt</td>
 										</tr>";
 						   		 }
 							}else {
@@ -129,7 +130,7 @@
 							if ($result->num_rows > 0) {
 
 								echo "<tr>
-										<th>#</th><th>Lugar de Salida</th><th>Lugar de Llegada</th><th>Fecha y Hora de Salida</th><th>Fecha y Hora de llegada</th><th>Número de Unidad</th><th>Id del conductor</th>
+										<th>#</th><th>Lugar de Salida</th><th>Lugar de Llegada</th><th>Fecha y Hora de Salida</th><th>Fecha y Hora de llegada</th><th>Número de Unidad</th><th>Id del conductor</th></th><th>Costo Ticket</th>
 									</tr>";
 
 								while($row = $result->fetch_assoc()) {
@@ -141,9 +142,10 @@
 							    $fhllegada = $row["fhllegada"];
 							    $numunidad = $row["numunidad"];
 							    $idconductor = $row["idconductor"];
+							    $costotckt = $row["costotckt"];
 
 							    echo "<tr>
-											<td>$id</td><td>$lsalida</td><td>$lllegada</td><td>$fhsalida</td><td>$fhllegada</td><td>$numunidad</td><td>$idconductor</td>
+											<td>$id</td><td>$lsalida</td><td>$lllegada</td><td>$fhsalida</td><td>$fhllegada</td><td>$numunidad</td><td>$idconductor</td><td>$costotckt</td>
 										</tr>";
 						   		 }
 							}else {
@@ -172,7 +174,7 @@
 							$result = $conn->query($sql);
 							if ($result->num_rows > 0) {
 								echo "<tr>
-											<th>#</th><th>Lugar de Salida</th><th>Lugar de Llegada</th><th>Fecha y Hora de Salida</th><th>Fecha y Hora de llegada</th><th>Número de Unidad</th><th>Id del conductor</th>
+											<th>#</th><th>Lugar de Salida</th><th>Lugar de Llegada</th><th>Fecha y Hora de Salida</th><th>Fecha y Hora de llegada</th><th>Número de Unidad</th><th>Id del conductor</th></th><th>Costo Ticket</th>
 										</tr>";
 
 								while($row = $result->fetch_assoc()) {
@@ -184,9 +186,10 @@
 							    $fhllegada = $row["fhllegada"];
 							    $numunidad = $row["numunidad"];
 							    $idconductor = $row["idconductor"];
+							    $costotckt = $row["costotckt"];
 
 							    echo "<tr>
-											<td>$id</td><td>$lsalida</td><td>$lllegada</td><td>$fhsalida</td><td>$fhllegada</td><td>$numunidad</td><td>$idconductor</td>
+											<td>$id</td><td>$lsalida</td><td>$lllegada</td><td>$fhsalida</td><td>$fhllegada</td><td>$numunidad</td><td>$idconductor</td><td>$costotckt</td>
 										</tr>";
 						   		 }
 							}else {
@@ -211,7 +214,7 @@
 			<!--AÑADIR VIAJE-->
 			<div id="ao-viajes-administrarviajes-anadir">
 			
-				<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+				<form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
 					<h2>Agendar un Viaje</h2>
 					<div class="form-group">
 						<input type="text" name="lsalida" placeholder="Lugar de salida" class="form-control">
@@ -275,9 +278,16 @@
 								
 												   $sqll = "INSERT INTO rutas (lsalida, lllegada, fhsalida, fhllegada, numunidad, idconductor, costotckt)
 													VALUES ('$lsalida', '$lllegada', '$fhsalida', '$fhllegada', '$numunidad', '$idconductor', '$costotckt')";
-
+													
 													if ($conn->query($sqll) === TRUE) {
-													    echo "<script>alert('Felicitaciones! Registro Exitoso!');</script>";
+													    $last_id = $conn->insert_id;
+														$sqll2 = "INSERT INTO rviajes (id)
+														VALUES ('$last_id');";
+													 	if ($conn->query($sqll2) === TRUE){
+													 		echo "<script>alert('Felicitaciones! Registro Exitoso!');</script>";
+													 	}else {
+													   		echo "Error: " . $sqll2 . "<br>" . $conn->error;
+															}
 													} else {
 													    echo "Error: " . $sqll . "<br>" . $conn->error;
 													}
@@ -292,7 +302,7 @@
 			<!--REMOVER VIAJE-->
 			<div id="ao-viajes-administrarviajes-remover">
 			
-			<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+			<form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
 					<h2>Eliminar un Viaje</h2>
 					<div class="form-group">
 						<input type="number" name="id" placeholder="id del viaje" class="form-control">
@@ -300,7 +310,7 @@
 					<div class="form-group">
 					<button class="btn canyshowfunc" type="button">Cancelar</button>
 					<input  class="nodisplay" type="text" name="posttype" value="remviaj">
-					<button type="submit" class="btn btn-success">Registrar</button> 
+					<button type="submit" class="btn btn-success">Eliminar</button> 
 					</div>
 				</form>
 				<?php 
@@ -341,7 +351,7 @@
 
 			<!--EDITAR VIAJE-->
 			<div id="ao-viajes-administrarviajes-editar" class="editar">
-				<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+				<form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
 					<input type="number" name="id" placeholder="id">
 					<input  class="nodisplay" type="text" name="posttype" value="editviaj">
 					<button type="submit" class="btn btn-success" id="ao-viajes-editar-buscarid">Buscar ID</button> 
@@ -361,23 +371,24 @@
 
 							$id= test_input($id);
 							require('puzz/dbconnect.php');
-							$sql = "SELECT * FROM RUTAS WHERE id = '$id';";
+							$sql = "SELECT * FROM rutas WHERE id = '$id';";
 							$result = $conn->query($sql);
 												if ($result->num_rows > 0) {
 
 													echo "<tr>
-															<th>#</th><th>Lugar de Salida</th><th>Lugar de Llegada</th><th>Fecha y Hora de Salida</th><th>Fecha y Hora de llegada</th><th>Número de Unidad</th><th>Id del conductor</th>
+															<th>#</th><th>Lugar de Salida</th><th>Lugar de Llegada</th><th>Fecha y Hora de Salida</th><th>Fecha y Hora de llegada</th><th>Número de Unidad</th><th>Id del conductor</th><th>Costo Ticket</th>
 														</tr>";
 
 													while($row = $result->fetch_assoc()) {
 											        
-												    $id = $row["id"];
+												    $idd = $row["id"];
 												    $lsalida = $row["lsalida"];
 												    $lllegada = $row["lllegada"];
 												    $fhsalida = $row["fhsalida"];
 												    $fhllegada = $row["fhllegada"];
 												    $numunidad = $row["numunidad"];
 												    $idconductor = $row["idconductor"];
+												    $costotckt = $row["costotckt"];
 
 										$s = $fhsalida;
 									$dts = new DateTime($s);
@@ -397,7 +408,7 @@
 									
 							echo "<tr>				
 									<td>
-										<input type='number' value='$id' name='id' readonly>
+										<input type='text' name='id' value='$idd' class='nodisplay'>$idd
 									</td>
 									<td>
 										<input type='text' name='lsalida' value='$lsalida'>
@@ -416,6 +427,9 @@
 									</td>
 									<td>
 										<input type='number' name='idconductor' value='$idconductor'>
+									</td>
+									<td>
+										<input type='number' name='costotckt' value='$costotckt'>
 									</td>
 								</tr>";
 								
@@ -446,9 +460,10 @@
 						}
 						if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["posttype"] == "editviaj2"){
 
-												if (empty($_POST["lsalida"]) or empty($_POST["lllegada"]) or empty($_POST["fhsalida"]) or empty($_POST["fhllegada"]) or empty($_POST["numunidad"]) or empty($_POST["idconductor"])) {
+												if (empty($_POST["lsalida"]) or empty($_POST["lllegada"]) or empty($_POST["fhsalida"]) or empty($_POST["fhllegada"]) or empty($_POST["numunidad"]) or empty($_POST["idconductor"]) or empty($_POST["costotckt"])) {
 													  echo "<script>alert('Por favor rellena todos los datos.');</script>";
 												  }else{
+												  
 												  	$id = $_POST["id"];
 													$lsalida = $_POST["lsalida"];
 													$lllegada = $_POST["lllegada"];
@@ -456,6 +471,7 @@
 													$fhllegada = $_POST["fhllegada"];
 													$numunidad = $_POST["numunidad"];
 													$idconductor = $_POST["idconductor"];
+													$costotckt = $_POST["costotckt"];
 									
 													
 													function test_input($data) {
@@ -471,6 +487,7 @@
 													$fhllegada= test_input($fhllegada);
 													$numunidad = test_input($numunidad);
 													$idconductor = test_input($idconductor);
+													$costotckt = test_input($costotckt);
 												
 													//MySQl
 													require('puzz/dbconnect.php');
@@ -481,8 +498,9 @@
 																	fhsalida = '$fhsalida', 
 																	fhllegada = '$fhllegada', 
 																	numunidad = '$numunidad', 
-																	idconductor = '$idconductor'
-																WHERE id='$id'";
+																	idconductor = '$idconductor',
+																	costotckt = '$costotckt'
+																WHERE id ='$id';";
 
 																		if ($conn->query($sql) === TRUE) {
 																		    echo "<script>alert('Felicitaciones! UPDATE Exitoso!');</script>";
@@ -491,7 +509,7 @@
 																		}
 
 													
-													require('puzz/dbclose.php');			
+													require('puzz/dbclose.php');	
 												}}
 					 ?>
 
@@ -507,7 +525,28 @@
 		<div id="ao-boletos-administrarboletos">
 
 			<!--AÑADIR O VENDER BOLETOS-->
-			<div id="ao-boletos-administrarboletos-anadir">Añadir o Vender Boletos</div>
+			<div id="ao-boletos-administrarboletos-anadir">
+				
+				<form method="POST" action="puzz/venderboletos1.php">
+					<h2>Vender un Boleto</h2>
+					<div class="form-group">
+						<input type="text" name="lsalida" placeholder="Lugar de salida" class="form-control">
+					</div>
+					<div class="form-group">
+						<input type="text" name="lllegada" placeholder="Lugar de llegada" class="form-control">
+					</div>
+					<div class="form-group">
+						<input type="date" name="fsalida" placeholder="Fecha Salida" class="form-control">
+					</div>
+		
+					<div class="form-group">
+					<button class="btn canyshowfunc" type="button">Cancelar</button>
+					<input  class="nodisplay" type="text" name="posttype" value="venderboletos1">
+					<button type="submit" class="btn btn-success">Consultar viajes</button> 
+					</div>
+				</form>
+
+			</div>
 
 			<!--REMOVER BOLETOS-->
 			<div id="ao-boletos-administrarboletos-remover">Remover Boletos</div>

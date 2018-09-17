@@ -1,4 +1,6 @@
-
+$(window).on('load', function () {
+		      jQuery(".cargandoo").fadeOut(300);
+		 });
 
 function mostrareditar() {
 		$('#ao').children('div').show();
