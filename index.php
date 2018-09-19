@@ -17,7 +17,7 @@
 	<div class="cargandoo"></div>
 
 	<?php 
-	require_once('puzz/header2.php');
+	require_once('puzz/header.php');
 	 ?>
 	<section>
 		 <!--EMPIEZA LA APP-->
@@ -31,7 +31,7 @@
 						        require_once('puzz/appviajero.php');
 						        break;
 						    case "oficinista":
-						        require_once('puzz/appoficinista2.php');
+						        require_once('puzz/appoficinista.php');
 						        break;
 						    case "conductor":
 						        require_once('puzz/appconductor.php');

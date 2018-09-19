@@ -1,34 +1,46 @@
-<header style="overflow: hidden;">
-	<div class="row">
-		<div class="col-md-4">
-				<a href="index.php"><h1 id="tgeneral">TRANSPORTE</h1></a>
+<header>
+	<div class="row" style="margin-left: 0px;">
+		<div class="col-2 mouselink" style="height: 50px;">
+			<div class="hdr-containerflex">
+					<i class="fa fa-navicon hdr-flexitem"></i>
+			</div>
 		</div>
-		<div class="col-md-4">
+		<div class="col-7" style="height: 50px;">
+			<a href="index.php" style="text-decoration: none;"><h1>TRANSPORTE</h1></a>
+			
 		</div>
-		<div class="col-md-2" style="line-height: 3rem; text-align: center; color: #f0f0f0;">
-			<?php 
-				if (!empty($_SESSION['name'])) {
-					echo "Bienvenido " . $_SESSION['name'] . "!";
-				}else{
-					echo 
-					"<a id='but1' onclick=" . '"document.getElementById(' . "'logform').style.display='block'; document.getElementById('regform').style.display=" . "'none';" . '"' . ">Iniciar Sesión</a>";
-				}
+		<div class="col-3" style="height: 50px;">
+			<div class="hdr-containerflex">
+					<div class="hdr-flexitem hdr-bigscr mouselink" style="font-size: 14px; margin-right: 10px;">
+						<?php 
+							if (!empty($_SESSION['name'])) {
+								require_once('puzz/log1true.php');
+							}else{
+								require_once('puzz/log1false.php');
+							}
 
-			 ?>
-				
-		</div>
+						 ?>
+					</div>
+					<div class="hdr-flexitem hdr-bigscr mouselink" style="font-size: 14px; margin-right: 10px;">
+						<?php 
+							if (!empty($_SESSION['name'])) {
+								require_once('puzz/log2true.php');
+							}else{
+								require_once('puzz/log2false.php');
+							}
 
-		<div class="col-md-2" style="line-height: 3rem; text-align: center; color: #f0f0f0;">
-			<?php 
-				if (!empty($_SESSION['name'])) {
-					echo "<a href='puzz/closesession.php' id='cslink'>Cerrar Sesión</a>";
-				}else{
-					echo 
-					"<a id='but2' onclick=" . '"document.getElementById(' . "'regform').style.display='block'; document.getElementById('logform').style.display=" . "'none';" . '"' . ">Registrarse</a>";
-				}
-
-			 ?>
-				
+						 ?>
+					</div>
+					<div class="mouselink">
+					<?php 
+							if (!empty($_SESSION['name'])) {
+								require_once('puzz/log3true.php');
+							}else{
+								require_once('puzz/log3false.php');
+							}
+						 ?>
+					</div>
+			</div>
 		</div>
 	</div>
-</header>
+	</header>

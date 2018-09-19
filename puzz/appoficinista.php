@@ -341,6 +341,13 @@
 													} else {
 													    echo "Error: " . $sqll . "<br>" . $conn->error;
 													}
+													$sqll2 = "DELETE FROM rviajes WHERE id = '$id';";
+
+													if ($conn->query($sqll2) === TRUE) {
+													    echo "<script>alert('Felicitaciones! Registro Eliminado!');</script>";
+													} else {
+													    echo "Error: " . $sqll2 . "<br>" . $conn->error;
+													}
 
 								
 								require('puzz/dbclose.php');			
@@ -527,7 +534,7 @@
 			<!--AÑADIR O VENDER BOLETOS-->
 			<div id="ao-boletos-administrarboletos-anadir">
 				
-				<form method="POST" action="puzz/venderboletos1.php">
+				<form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
 					<h2>Vender un Boleto</h2>
 					<div class="form-group">
 						<input type="text" name="lsalida" placeholder="Lugar de salida" class="form-control">
@@ -545,6 +552,274 @@
 					<button type="submit" class="btn btn-success">Consultar viajes</button> 
 					</div>
 				</form>
+				<!--OLD VENDERBOLETOS1.PHP -->
+					<?php
+						echo "<table class='table table-striped tablewhite'>";
+							if (!empty($_POST['lsalida']) && $_POST['posttype'] == "venderboletos1") {
+
+								$saliendode = $_POST['lsalida'];
+								$llegandoa = $_POST['lllegada'];
+								$fecha = $_POST['fsalida'];
+
+								require('puzz/dbconnect.php');
+								$sql = "SELECT * FROM rutas WHERE lsalida = '$saliendode' AND lllegada = '$llegandoa' AND date(fhsalida) = date('$fecha');";
+								$result = $conn->query($sql);
+												if ($result->num_rows > 0) {
+													echo "<h1>Viajes de $saliendode hacia $llegandoa del la fecha $fecha</h1>";
+													echo "<tr>
+																<th>#</th><th>Hora de Salida</th><th>Fecha y Hora de llegada</th><th>Costo Ticket</th>
+															</tr>";
+
+													while($row = $result->fetch_assoc()) {
+											        
+												    $id = $row["id"];
+												    $lsalida = $row["lsalida"];
+												    $lllegada = $row["lllegada"];
+												    $fhsalida = $row["fhsalida"];
+												    $fhllegada = $row["fhllegada"];
+												    $numunidad = $row["numunidad"];
+												    $idconductor = $row["idconductor"];
+												    $costotckt = $row["costotckt"];
+												    $date = date("h:i a", strtotime($fhsalida));
+												    echo "<tr>
+																<td>$id</td><td>$date</td><td>$fhllegada</td><td>$costotckt</td>
+															</tr>";
+											   		 }
+											   		
+											   		 echo "<form action='index.php' method='POST'>
+																<input type='number' name='idselected'>
+																<input  class='nodisplay' type='text' name='posttype' value='venderboletos2'>
+																<button type='submit' class='btn btn-success'>Seleccionar esta ruta</button> 
+															</form>";
+												}else {
+															$_SESSION['failure'] = "No hemos podido conseguir viajes de esa fecha, intenta más tarde.";
+															$_SESSION['failureshow'] = "#verphptlv";
+															require('puzz/logdataerr.php');
+											    
+															}
+												$conn->close();
+							}else{
+								echo "No sirve pa una mierdish";
+							}
+						 echo "</table>";
+					?>
+				<!--OLD VENDERBOLETOS2.php -->
+					<?php 
+						echo "<table class='table table-striped tablewhite'>";
+						
+							if (!empty($_POST['idselected']) && $_POST['posttype'] == "venderboletos2") {
+								
+								$idruta= $_POST['idselected'];
+
+
+								require('puzz/dbconnect.php');
+								$sql = "SELECT * FROM rutas WHERE id = '$idruta' LIMIT 1;";
+
+							
+								/**/
+								$result = $conn->query($sql);
+												if ($result->num_rows > 0) {
+												
+
+													while($row = $result->fetch_assoc()) {
+											        
+												    $id = $row["id"];
+												    $lsalida = $row["lsalida"];
+												    $lllegada = $row["lllegada"];
+												    $fhsalida = $row["fhsalida"];
+												    $fhllegada = $row["fhllegada"];
+												    $numunidad = $row["numunidad"];
+												    $idconductor = $row["idconductor"];
+												    $costotckt = $row["costotckt"];
+												    $date = date("h:i a", strtotime($fhsalida));
+												    /* segunda consulta */
+												    $sql2 = "SELECT * FROM cars WHERE numunidad = '$numunidad' LIMIT 1;";
+
+												    $result2 = $conn->query($sql2);
+
+												    if ($result2->num_rows > 0) {
+												    	while ($row2 = $result2->fetch_assoc()) {
+												    		$carplaca = $row2["placa"];
+												    		$carmarca = $row2["marca"];
+												    		$carlinea = $row2["linea"];
+												    		$carcantasientos = $row2["cantasientos"];
+												    		$carservwifi = $row2["servwifi"];
+												    		$carservtv = $row2["servtv"];
+												    		$carservbath = $row2["servbath"];
+												    		$carotrosserv = $row2["otrosserv"];
+
+												    		echo "Datos: $id, $lsalida, $lllegada, $fhsalida, $fhllegada, $idconductor, $costotckt <br> 
+																$numunidad, $carplaca, $carmarca, $carlinea, $carcantasientos,
+																$carservwifi, $carservtv, $carservbath.<br>
+												    		";
+
+												    		/* Tercera consulta*/
+												    		 $sql3 = "SELECT * FROM rviajes WHERE id = '$id' LIMIT 1;";
+
+												   			 $result3 = $conn->query($sql3);
+
+												    if ($result3->num_rows > 0) {
+												    	while ($row3 = $result3->fetch_assoc()) {
+												    		$countasiento = 1;
+												    		$countp = 1;
+												    		$collectiondata = array("$id","$lsalida","$lllegada", "$fhsalida", "$fhllegada", "$numunidad", "$idconductor", "$costotckt",  "$carplaca", "$carmarca", "$carlinea", "$carcantasientos", "$carservwifi", "$carservtv", "$carservbath", "$carotrosserv");
+												    		$_SESSION['collectiondata'] = $collectiondata;
+
+												    			echo "<form action='index.php' method='POST'>
+																	<input  class='nodisplay' type='text' name='posttype' value='venderboletos3'>
+																	<button type='submit' class='btn btn-success'>Seleccionar estos asientos</button> 
+															";
+												    			echo "<table class=\"table table-striped tablewhite\">";
+												    			echo "<tr>
+																		<th>N° de asiento</th>
+																		<th>Estado</th>
+																	</tr>";
+												    		while ($countasiento <= $carcantasientos) {
+												    		
+												    			echo "<tr>
+																		<td id='numruta$id'>$countasiento</td>
+																		";
+												    			
+												    				if ($row3["p$countasiento"] === NULL) {
+												    					echo "<td>Disponible <input type='checkbox' name='$countasiento' value='selected'></td>
+																	</tr>";
+												    				}else{
+												    					echo "<td>Ocupado</td>
+																	</tr>";
+												    				}
+												    			$countasiento++;
+												    		}
+
+												    		echo "</table></form>";
+												    	}
+												    }else {
+															$_SESSION['failure'] = "numunidad invalido.";
+															$_SESSION['failureshow'] = "#verphptlv";
+															require('puzz/logdataerr.php');
+											    
+															}
+
+
+												    	}
+												    }else {
+															$_SESSION['failure'] = "numunidad invalido.";
+															$_SESSION['failureshow'] = "#verphptlv";
+															require('puzz/logdataerr.php');
+											    
+															}
+												    }
+												}else {
+															$_SESSION['failure'] = "Id selected invalido.";
+															$_SESSION['failureshow'] = "#verphptlv";
+															require('puzz/logdataerr.php');
+											    
+															}
+												$conn->close();
+
+							}else{
+								echo "No sirve pa una mierdish";
+							}
+						echo "</table>";
+					?>
+				<!--OLD VENDERBOLETOS3.php-->
+					<?php  
+						if (!empty($_SESSION['collectiondata']) && count($_POST) > 1) {	
+							echo "<pre>";
+							print_r($_POST);	
+							print_r($_SESSION['collectiondata']);
+							echo "</pre>";
+							echo "<br>";
+							echo "<form action='index.php' method='POST'>
+																<input  class='nodisplay' type='text' name='posttype' value='venderboletos4'>
+																 
+														";
+							echo "<table class=\"table table-striped tablewhite\">";
+							echo "<tr>
+									<th>N° de asiento</th>
+									<th>Número de documento de la persona que viajará en este asiento</th>
+								</tr>";
+							
+							foreach($_POST as $key=>$value){
+									if ($key == "posttype") {
+										  continue;
+									} else {
+										echo "<tr>
+									<td>$key</td>
+									<td>
+										<input type='number' name='p$key' placeholder='Numero de documento'>
+									</td>
+									</tr>";
+									}
+							}
+									
+							echo "</table>";		 
+							$countasientos = count($_POST)-1;
+							$costoasiento = $_SESSION['collectiondata'][7];
+							$totalapagar = $countasientos*$costoasiento;
+							echo "Total a pagar: $totalapagar";
+							
+							echo "<button type='submit' class='btn btn-success'>Comprar</button></form>";
+						}else{
+							echo "Por favor selecciona al menos un asiento! <br>";
+						}
+					?> 
+				<!--OLD VENDERBOLETOS4.php-->
+					<?php 
+						if (!empty($_POST['posttype']) && $_POST['posttype'] == "venderboletos4") {
+							echo "<pre>";
+							print_r($_POST);
+							echo "</pre>";
+							$i = 1;
+							
+							$contardatosainsertar = count($_POST)-1;
+							foreach($_POST as $key=>$value){
+									if ($key == "posttype") {
+										  continue;
+									} else {
+
+										echo "$key=$value<br>";
+										${"campo" . $i} = $key;
+										${"dato" . $i} = $value;
+										$i++;
+									}
+							}
+							$i = 1;
+							$sucess = 0;
+							require('puzz/dbconnect.php');
+
+							while ($i <= $contardatosainsertar) {
+								
+								
+								$idrviaje = $_SESSION['collectiondata'][0];
+								$campo = ${"campo" . $i};
+								$dato = ${"dato" . $i};
+
+							
+							$sql = "UPDATE rviajes SET $campo ='$dato' WHERE id ='$idrviaje';";
+							if ($conn->query($sql) === TRUE) {
+								 $sucess++;
+								$i++;
+							}
+											else {
+														echo "Error: " . $sql . "<br>" . $conn->error;
+														die('Fatal error');
+													}
+											
+
+
+										}#cerrando el while
+						if ($sucess > 0) {
+							echo "<script>alert('Boletos Comprados');</script>";
+						}
+						
+						$conn->close();
+
+
+						}else{
+							echo "No sirve pa una mierdish";
+						}
+					 ?>
+
 
 			</div>
 

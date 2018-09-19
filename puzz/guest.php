@@ -1,3 +1,3 @@
 <div>
-	<p>Invitado</p>
+	<p></p>
 </div>
