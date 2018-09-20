@@ -792,17 +792,30 @@
 							$i = 1;
 							
 							$contardatosainsertar = count($_POST)-1;
+							echo "<h3>BOLETOS COMPRADOS</h3><br>";
+							echo "<table class=\"table table-striped tablewhite\">";
+							echo "<tr>
+									<th>N° de asiento</th>
+									<th>Número de documento de la persona que viajará en este asiento</th>
+								</tr>";
 							foreach($_POST as $key=>$value){
 									if ($key == "posttype") {
 										  continue;
 									} else {
 
-										echo "$key=$value<br>";
+										
+										echo "<tr>
+												<td>$key</td>
+												<td>$value</td>
+											</tr>";
+
 										${"campo" . $i} = $key;
 										${"dato" . $i} = $value;
 										$i++;
 									}
 							}
+							echo "</table>";
+
 							$i = 1;
 							$sucess = 0;
 							require('puzz/dbconnect.php');
@@ -833,7 +846,7 @@
 						}
 						
 						$conn->close();
-
+						echo "<a href='index.php'><p>Entendido, Continuar.</p></a>";
 
 						}
 					 ?>
@@ -842,6 +855,10 @@
 						echo "<script>
 								setTimeout('aoboletosmostrarvenderboletos4();', 100);
 							  </script>";
+						$_SESSION['venderboletos1'] = "0";
+						$_SESSION['collectiondata'] = "0";
+						$_POST = array();
+						unset($_POST);
 
 					}
 					 ?>
