@@ -461,7 +461,7 @@
 					<?php 
 					if (!empty($_SESSION['buscaridedit']) && $_SESSION['buscaridedit'] == "seteada") {
 							echo "<script type='text/javascript'> 
-							setTimeout ('mostrareditar();', 100); 
+							setTimeout ('aoviajesmostrareditar();', 100); 
 							</script>";
 							$_SESSION['buscaridedit'] = "0";
 						}
@@ -534,7 +534,7 @@
 			<!--AÑADIR O VENDER BOLETOS-->
 			<div id="ao-boletos-administrarboletos-anadir">
 				
-				<form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
+				<form id="aostep1" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
 					<h2>Vender un Boleto</h2>
 					<div class="form-group">
 						<input type="text" name="lsalida" placeholder="Lugar de salida" class="form-control">
@@ -554,13 +554,15 @@
 				</form>
 				<!--OLD VENDERBOLETOS1.PHP -->
 					<?php
-						echo "<table class='table table-striped tablewhite'>";
-							if (!empty($_POST['lsalida']) && $_POST['posttype'] == "venderboletos1") {
 
+						
+							if (!empty($_POST['lsalida']) && $_POST['posttype'] == "venderboletos1") {
+								echo "<table class='table table-striped tablewhite'>";
 								$saliendode = $_POST['lsalida'];
 								$llegandoa = $_POST['lllegada'];
 								$fecha = $_POST['fsalida'];
-
+		/*SESSION VAR*/
+								$_SESSION['venderboletos1'] = "seteada";
 								require('puzz/dbconnect.php');
 								$sql = "SELECT * FROM rutas WHERE lsalida = '$saliendode' AND lllegada = '$llegandoa' AND date(fhsalida) = date('$fecha');";
 								$result = $conn->query($sql);
@@ -598,19 +600,26 @@
 											    
 															}
 												$conn->close();
-							}else{
-								echo "No sirve pa una mierdish";
+												echo "</table>";
 							}
-						 echo "</table>";
+						 
 					?>
+					<?php 
+					if (!empty($_SESSION['venderboletos1']) && $_SESSION['venderboletos1'] == "seteada") {
+						echo "<script>
+								setTimeout('aoboletosmostrarvenderboletos1();', 100);
+							  </script>";
+
+					}
+					 ?>
 				<!--OLD VENDERBOLETOS2.php -->
 					<?php 
-						echo "<table class='table table-striped tablewhite'>";
-						
+				
 							if (!empty($_POST['idselected']) && $_POST['posttype'] == "venderboletos2") {
 								
+								echo "<table class='table table-striped tablewhite'>";
 								$idruta= $_POST['idselected'];
-
+								$_SESSION['venderboletos1'] = "seteada2";
 
 								require('puzz/dbconnect.php');
 								$sql = "SELECT * FROM rutas WHERE id = '$idruta' LIMIT 1;";
@@ -664,7 +673,7 @@
 												    		$countp = 1;
 												    		$collectiondata = array("$id","$lsalida","$lllegada", "$fhsalida", "$fhllegada", "$numunidad", "$idconductor", "$costotckt",  "$carplaca", "$carmarca", "$carlinea", "$carcantasientos", "$carservwifi", "$carservtv", "$carservbath", "$carotrosserv");
 												    		$_SESSION['collectiondata'] = $collectiondata;
-
+												    			
 												    			echo "<form action='index.php' method='POST'>
 																	<input  class='nodisplay' type='text' name='posttype' value='venderboletos3'>
 																	<button type='submit' class='btn btn-success'>Seleccionar estos asientos</button> 
@@ -715,20 +724,25 @@
 											    
 															}
 												$conn->close();
+												echo "</table>";
 
-							}else{
-								echo "No sirve pa una mierdish";
 							}
-						echo "</table>";
+						
 					?>
+					<?php 
+					if (!empty($_SESSION['venderboletos1']) && $_SESSION['venderboletos1'] == "seteada2") {
+						echo "<script>
+								setTimeout('aoboletosmostrarvenderboletos2();', 100);
+							  </script>";
+
+					}
+					 ?>
 				<!--OLD VENDERBOLETOS3.php-->
 					<?php  
-						if (!empty($_SESSION['collectiondata']) && count($_POST) > 1) {	
-							echo "<pre>";
-							print_r($_POST);	
-							print_r($_SESSION['collectiondata']);
-							echo "</pre>";
-							echo "<br>";
+						if (!empty($_SESSION['collectiondata']) && count($_POST) > 1 && $_POST['posttype'] == "venderboletos3") {	
+							$_SESSION['venderboletos1'] = "seteadaold3";
+							echo "<div id='aostep4'>";
+						
 							echo "<form action='index.php' method='POST'>
 																<input  class='nodisplay' type='text' name='posttype' value='venderboletos4'>
 																 
@@ -759,16 +773,22 @@
 							echo "Total a pagar: $totalapagar";
 							
 							echo "<button type='submit' class='btn btn-success'>Comprar</button></form>";
-						}else{
-							echo "Por favor selecciona al menos un asiento! <br>";
+							echo "</div>";
 						}
 					?> 
+					<?php 
+					if (!empty($_SESSION['venderboletos1']) && $_SESSION['venderboletos1'] == "seteadaold3") {
+						echo "<script>
+								setTimeout('aoboletosmostrarvenderboletos3();', 100);
+							  </script>";
+
+					}
+					 ?>
 				<!--OLD VENDERBOLETOS4.php-->
 					<?php 
 						if (!empty($_POST['posttype']) && $_POST['posttype'] == "venderboletos4") {
-							echo "<pre>";
-							print_r($_POST);
-							echo "</pre>";
+							$_SESSION['venderboletos1'] = "seteadafinal";
+							
 							$i = 1;
 							
 							$contardatosainsertar = count($_POST)-1;
@@ -815,9 +835,15 @@
 						$conn->close();
 
 
-						}else{
-							echo "No sirve pa una mierdish";
 						}
+					 ?>
+					 <?php 
+					if (!empty($_SESSION['venderboletos1']) && $_SESSION['venderboletos1'] == "seteadafinal") {
+						echo "<script>
+								setTimeout('aoboletosmostrarvenderboletos4();', 100);
+							  </script>";
+
+					}
 					 ?>
 
 

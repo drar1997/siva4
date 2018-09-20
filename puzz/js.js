@@ -1,8 +1,8 @@
 $(window).on('load', function () {
-		      jQuery(".cargandoo").fadeOut(300);
+		      jQuery(".cargandoo").fadeOut(500);
 		 });
 
-function mostrareditar() {
+function aoviajesmostrareditar() {
 		$('#ao').children('div').show();
 		$('#ao-selectfilter').children('div').show();
 		$('#ao').children('div').hide();
@@ -14,6 +14,63 @@ function mostrareditar() {
 		$('#ao-viajes-administrarviajes').show();
 		$('#ao-viajes-administrarviajes').children('div').hide();
 		$('#ao-viajes-administrarviajes-editar').show();
+	};
+
+function aoboletosmostrarvenderboletos1() {
+		$('#ao').children('div').show();
+		$('#ao-selectfilter').children('div').show();
+		$('#ao').children('div').hide();
+		$('#ao-selectfilter').children('div').hide();
+		$('#ao-boletos').show();
+		$('#ao-boletos').children('div').hide();
+		$('#ao-boletos-administrarboletos').show();
+		$('#ao-boletos-administrarboletos').children('div').hide();
+		$('#ao-boletos-administrarboletos-anadir').show();
+		$('#aostep1').hide();
+	};
+
+function aoboletosmostrarvenderboletos2() {
+		$('#ao').children('div').show();
+		$('#ao-selectfilter').children('div').show();
+		$('#ao').children('div').hide();
+		$('#ao-selectfilter').children('div').hide();
+		$('#ao-boletos').show();
+		$('#ao-boletos').children('div').hide();
+		$('#ao-boletos-administrarboletos').show();
+		$('#ao-boletos-administrarboletos').children('div').hide();
+		$('#ao-boletos-administrarboletos-anadir').show();
+		$('#aostep1').hide();
+		$('#aostep2').hide();
+	};
+
+function aoboletosmostrarvenderboletos3() {
+		$('#ao').children('div').show();
+		$('#ao-selectfilter').children('div').show();
+		$('#ao').children('div').hide();
+		$('#ao-selectfilter').children('div').hide();
+		$('#ao-boletos').show();
+		$('#ao-boletos').children('div').hide();
+		$('#ao-boletos-administrarboletos').show();
+		$('#ao-boletos-administrarboletos').children('div').hide();
+		$('#ao-boletos-administrarboletos-anadir').show();
+		$('#aostep1').hide();
+		$('#aostep2').hide();
+		$('#aostep3').hide();
+	};
+function aoboletosmostrarvenderboletos4() {
+		$('#ao').children('div').show();
+		$('#ao-selectfilter').children('div').show();
+		$('#ao').children('div').hide();
+		$('#ao-selectfilter').children('div').hide();
+		$('#ao-boletos').show();
+		$('#ao-boletos').children('div').hide();
+		$('#ao-boletos-administrarboletos').show();
+		$('#ao-boletos-administrarboletos').children('div').hide();
+		$('#ao-boletos-administrarboletos-anadir').show();
+		$('#aostep1').hide();
+		$('#aostep2').hide();
+		$('#aostep3').hide();
+		$('#aostep4').hide();
 	};
 
 
